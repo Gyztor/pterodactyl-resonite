@@ -45,7 +45,24 @@ if [ "${STEAM_BRANCH}" = "" ]; then
 	STEAM_BRANCH="headless"
 fi
 
-./steamcmd/steamcmd.sh +login ${STEAM_USER} ${STEAM_PASSWORD} ${STEAM_AUTH} +@sSteamCmdForcePlatformType windows +force_install_dir /home/container +app_license_request 2519830 +app_update 2519830 -beta ${STEAM_BRANCH} ${STEAMCMD_BETA_PASSWORD} validate +quit
+INSTALL_DIRECTORY="/home/container/Resonite"
+LEGACY_INSTALL="FALSE"
+
+if [ -f /home/container/Build.version ]; then
+	echo "Legacy install location detected"
+	INSTALL_DIRECTORY="/home/container"
+	LEGACY_INSTALL="TRUE"
+fi
+
+if [ ${LEGACY_INSTALL} = "FALSE" ]; then
+	if [ ! -L /home/container/Headless ]; then
+		echo "Symlink doesn't exist!"
+		mkdir -p /home/container/Resonite/Headless
+		ln -s /home/container/Resonite/Headless /home/container/Headless
+	fi
+fi
+
+./steamcmd/steamcmd.sh +login ${STEAM_USER} ${STEAM_PASSWORD} ${STEAM_AUTH} +@sSteamCmdForcePlatformType windows +force_install_dir ${INSTALL_DIRECTORY} +app_license_request 2519830 +app_update 2519830 -beta ${STEAM_BRANCH} ${STEAMCMD_BETA_PASSWORD} validate +quit
 
 # Modding stuff
 HEADLESS_DIRECTORY="/home/container"
