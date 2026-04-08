@@ -99,12 +99,12 @@ if [ "${ENABLE_MODS}" = "true" ] || [ "${ENABLE_MODS}" = "1" ]; then
 
 	if [ "$MOD_HEADLESSUSERCULLING" = "1" ]; then
 		echo "Installing HeadlessUserCulling by Raidriar"
-		curl -SslL https://github.com/Raidriar796/HeadlessUserCulling/releases/latest/download/HeadlessUserCulling.dll -o ${HEADLESS_DIRECTORY}/rml_mods/HeadlessUserCulling.dll
+		curl -SslL https://codeberg.org/Raidriar/HeadlessUserCulling/releases/download/latest/HeadlessUserCulling.dll -o ${HEADLESS_DIRECTORY}/rml_mods/HeadlessUserCulling.dll
 	fi
 
 	if [ "$MOD_STRESSLESSHEADLESS" = "1" ]; then
 		echo "Installing StresslessHeadless by Raidriar"
-		curl -SslL https://github.com/Raidriar796/StresslessHeadless/releases/latest/download/StresslessHeadless.dll -o ${HEADLESS_DIRECTORY}/rml_mods/StresslessHeadless.dll
+		curl -SslL https://codeberg.org/Raidriar/StresslessHeadless/releases/download/latest/StresslessHeadless.dll -o ${HEADLESS_DIRECTORY}/rml_mods/StresslessHeadless.dll
 	fi
 
 fi
