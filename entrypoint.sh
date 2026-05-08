@@ -62,7 +62,7 @@ if [ ${LEGACY_INSTALL} = "FALSE" ]; then
 	fi
 fi
 
-./steamcmd/steamcmd.sh +login ${STEAM_USER} ${STEAM_PASSWORD} ${STEAM_AUTH} +@sSteamCmdForcePlatformType windows +force_install_dir ${INSTALL_DIRECTORY} +app_license_request 2519830 +app_update 2519830 -beta ${STEAM_BRANCH} ${STEAMCMD_BETA_PASSWORD} validate +quit
+./steamcmd/steamcmd.sh +login ${STEAM_USER} ${STEAM_PASSWORD} ${STEAM_AUTH} +force_install_dir ${INSTALL_DIRECTORY} +app_license_request 2519830 +app_update 2519830 -beta ${STEAM_BRANCH} ${STEAMCMD_BETA_PASSWORD} validate +quit
 
 # Modding stuff
 HEADLESS_DIRECTORY="/home/container"
@@ -106,6 +106,12 @@ if [ "${ENABLE_MODS}" = "true" ] || [ "${ENABLE_MODS}" = "1" ]; then
 		echo "Installing StresslessHeadless by Raidriar"
 		curl -SslL https://codeberg.org/Raidriar/StresslessHeadless/releases/download/latest/StresslessHeadless.dll -o ${HEADLESS_DIRECTORY}/rml_mods/StresslessHeadless.dll
 	fi
+
+	#SqueezeEmIn
+    if [ "${MOD_SQUEEZEMIN}" = "1" ]; then
+      echo "Installing SqueezEmIn by NobleReign"
+      curl -SslL https://github.com/noblereign/ResoniteSqueezeEmIn/releases/download/latest/SqueezeEmIn-Headless.dll -o ${HEADLESS_DIRECTORY}/rml_mods/SqueezeEmIn-Headless.dll
+    fi
 
 fi
 
