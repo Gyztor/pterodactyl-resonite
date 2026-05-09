@@ -4,13 +4,13 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2025-07-04T09:27:54+12:00",
+    "exported_at": "2026-05-08T20:00:41-04:00",
     "name": "Resonite Headless",
     "author": "bredo@voxelbone.cloud",
     "description": "Resonite Headless Egg, published by Voxel Bone Cloud",
     "features": null,
     "docker_images": {
-        "ghcr.io\/voxelbonecloud\/pterodactyl-resonite:main": "ghcr.io\/voxelbonecloud\/pterodactyl-resonite:main"
+        "ghcr.io\/gyztor\/pterodactyl-resonite:main": "ghcr.io\/gyztor\/pterodactyl-resonite:main"
     },
     "file_denylist": [],
     "startup": "dotnet Headless\/Resonite.dll -HeadlessConfig Config\/{{CONFIG_FILENAME}} -Logs Logs\/ $(if [ \"${ENABLE_MODS}\" = \"1\" ]; then echo \"-LoadAssembly Libraries\/ResoniteModLoader.dll\"; fi)",
@@ -32,7 +32,7 @@
             "name": "Steam Username",
             "description": "Your Steam username",
             "env_variable": "STEAM_USER",
-            "default_value": "",
+            "default_value": "havensedgemc",
             "user_viewable": false,
             "user_editable": false,
             "rules": "required|string|max:128",
@@ -42,17 +42,17 @@
             "name": "Steam Password",
             "description": "Your Steam password",
             "env_variable": "STEAM_PASSWORD",
-            "default_value": "",
+            "default_value": "NuFAZn68xNa!QCTiKj85SnH92l3o4HPCLWm^W^@%mryoBQQnv7EKjHrWso&V",
             "user_viewable": false,
             "user_editable": false,
-            "rules": "required|string|max:128",
+            "rules": "required|string|max:256",
             "field_type": "text"
         },
         {
             "name": "Steam Beta Code",
             "description": "The Steam Beta Code obtained through sending \/headlessCode to the Resonite bot",
             "env_variable": "BETA_CODE",
-            "default_value": "",
+            "default_value": "MangoPieChart",
             "user_viewable": false,
             "user_editable": false,
             "rules": "nullable|string|max:64",
@@ -122,6 +122,36 @@
             "name": "Install StresslessHeadless",
             "description": "Automatically installs the StresslessHeadless mod (Requires ResoniteModLoader)",
             "env_variable": "MOD_STRESSLESSHEADLESS",
+            "default_value": "0",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "boolean|max:20",
+            "field_type": "text"
+        },
+        {
+            "name": "Resonite Account Username",
+            "description": "",
+            "env_variable": "RESONITE_HEADLESS_USERNAME",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "string|max:64",
+            "field_type": "text"
+        },
+        {
+            "name": "Resonite Account Password",
+            "description": "",
+            "env_variable": "RESONITE_HEADLESS_PASSWORD",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "string|max:128",
+            "field_type": "text"
+        },
+        {
+            "name": "SqueezeMeIn Mod",
+            "description": "Allows specific user ids to join even when session is full.",
+            "env_variable": "MOD_SqueezEmIn",
             "default_value": "0",
             "user_viewable": true,
             "user_editable": true,
