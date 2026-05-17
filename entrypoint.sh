@@ -110,7 +110,7 @@ if [ "${ENABLE_MODS}" = "true" ] || [ "${ENABLE_MODS}" = "1" ]; then
 	#SqueezeEmIn
     if [ "${MOD_SQUEEZEMIN}" = "1" ]; then
       echo "Installing SqueezEmIn by NobleReign"
-      curl -SslL https://github.com/noblereign/ResoniteSqueezeEmIn/releases/download/latest/SqueezeEmIn-Headless.dll -o ${HEADLESS_DIRECTORY}/rml_mods/SqueezeEmIn-Headless.dll
+      curl -SslL https://github.com/noblereign/ResoniteSqueezeEmIn/releases/latest/download/SqueezeEmIn-Headless.dll -o ${HEADLESS_DIRECTORY}/rml_mods/SqueezeEmIn-Headless.dll
     fi
 
 fi
